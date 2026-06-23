@@ -1,0 +1,45 @@
+# Reconocimiento — airodump-ng + wash
+
+## APs detectados
+
+| BSSID | PWR | CH | ENC | ESSID |
+|-------|-----|----|-----|-------|
+| E8:48:B8:B8:77:D5 | -69 | 4 | WPA2 | Astudillo |
+| 30:16:9D:44:70:53 | -65 | 4 | WPA2 | GLOB... |
+| 64:BF:6B:86:3A:F8 | -70 | 9 | WPA2 | Julio Pacheco |
+| 5C:64:7A:6A:56:40 | -79 | 9 | WPA2 | Mari... |
+| DC:51:93:6F:CB:7A | -39 | 10 | WPA2 | AgudoCuenca |
+| 18:CF:24:48:05:2C | -74 | 3 | WPA2 | Manuel Albarracin |
+| CC:05:77:4D:24:28 | -69 | 2 | WPA2 | Fami... |
+| 70:68:71:0E:50:3A | -29 | 13 | WPA2 | NVRG... |
+| A0:3E:7B:A9:64:78 | -75 | 13 | WPA2 | Exte... |
+| CC:32:E5:5E:2B:05 | -81 | 7 | WPA2 | Mart... |
+| A0:09:2E:B2:87:78 | -73 | 7 | WPA2 | Xtri... |
+| 24:E9:CA:41:39:E4 | -30 | 6 | WPA2 | Departamentos |
+| **C0:25:67:12:6E:59** | **-27** | **3** | **WPA2** | **Nexxt_126E58** ← objetivo |
+| 96:D2:BC:49:EB:A4 | -76 | 1 | WPA2 | COSM... |
+| C0:D1:93:70:6C:68 | -78 | 1 | WPA2 | GONET_ALBERTO |
+| C0:D1:93:70:9B:E9 | -83 | 1 | WPA2 | (oculto) |
+
+## APs con WPS activo (wash)
+
+| BSSID | CH | dBm | WPS | Bloqueado | ESSID |
+|-------|----|-----|-----|-----------|-------|
+| A0:A3:F0:DD:06:A2 | 1 | -68 | 2.0 | No | Rhapsody |
+| C0:25:67:12:6E:59 | 3 | -29 | 2.0 | No | Nexxt_126E58 |
+| E8:48:B8:B8:77:D5 | 4 | -66 | 2.0 | No | Astudillo |
+| 24:E9:CA:41:39:E4 | 6 | -31 | 2.0 | No | Departamentos |
+
+> Los 4 APs tienen WPS 2.0 sin bloqueo por intentos fallidos, lo que los hace vulnerables a fuerza bruta sobre el PIN.
+
+## Prueba de inyección (aireplay-ng --test)
+
+```
+Injection is working!
+Found 4 APs
+
+DC:51:93:6F:CB:7A  AgudoCuenca       100% (30/30)  Power: -36.27
+DE:51:93:7F:CB:7A  (oculto)          100% (30/30)  Power: -37.63
+64:BF:6B:86:3A:F8  Julio Pacheco     100% (30/30)  Power: -73.40
+B0:D1:D6:2C:47:19  CELERITY CRISTINA  80% (24/30)  Power: -61.83
+```
