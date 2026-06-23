@@ -1,44 +1,46 @@
-# Auditoría de Seguridad en Redes Wi-Fi
+# 🔐 Auditoría de Seguridad en Redes Wi-Fi
 
-## Descripción
+> **⚠️ ADVERTENCIA**: Este repositorio es exclusivamente para fines educativos y de concienciación sobre seguridad. El uso indebido de estas técnicas en redes sin autorización explícita es ilegal.
 
-Práctica académica de auditoría inalámbrica realizada sobre un entorno
-controlado y autorizado.
+## 📋 Descripción
 
-Se aplicaron técnicas de reconocimiento, análisis de seguridad WPA2,
-captura de información inalámbrica y propuesta de hardening.
+Este proyecto documenta una práctica completa de **auditoría de seguridad en redes Wi-Fi** utilizando herramientas de Kali Linux. Se evaluaron vulnerabilidades en redes WPA/WPA2-PSK y WPS, aplicando técnicas de:
 
-## Metodología
+- Captura y análisis de handshakes
+- Cracking de contraseñas con diccionarios y reglas
+- Ataques WPS (Pixie Dust)
+- Ataques de Evil Twin con captura de credenciales
 
-Basada en PTES:
+## 🎯 Objetivos
 
-- Pre-engagement
-- Intelligence Gathering
-- Threat Modeling
-- Vulnerability Analysis
-- Reporting
+- ✅ Evaluar la robustez de contraseñas WPA2
+- ✅ Identificar vulnerabilidades en WPS
+- ✅ Demostrar ataques de captura de credenciales
+- ✅ Proporcionar recomendaciones de seguridad
 
-## Entorno
+## 🛠️ Herramientas Utilizadas
 
-Sistema:
-- Kali Linux instalado en disco externo
+| Herramienta | Versión | Función |
+|-------------|---------|---------|
+| airmon-ng   | 1.7     | Gestión de modo monitor |
+| airodump-ng | 1.7     | Escaneo y captura |
+| aireplay-ng | 1.7     | Inyección de paquetes |
+| aircrack-ng | 1.7     | Cracking WPA/WPA2 |
+| reaver      | 1.6.6   | Ataque WPS |
+| hcxdumptool | 7.0.0   | Captura PMKID/Handshake |
+| hashcat     | 7.1.2   | Cracking de hashes |
+| hostapd-wpe | -       | AP falso para captura |
 
-Hardware:
-- Lenovo IdeaPad 3
-- Realtek RTL8822CE 802.11ac PCIe
+## 🚀 Inicio Rápido
 
-## Herramientas
+### Prerrequisitos
 
-- Aircrack-ng
-- Airodump-ng
-- Aireplay-ng
-- Hashcat
-- HCXTools
-- Kismet
-- Wireshark
-- Nmap
+# Sistema operativo
+Kali Linux
 
-## Alcance
+# Hardware
+Adaptador Wi-Fi compatible con modo monitor y inyección
+(Recomendado: ALFA AWUS036ACH, TP-Link TL-WN722N)
 
-Todas las pruebas fueron realizadas únicamente
-sobre infraestructura propia/autorizada.
+# Diccionarios
+/usr/share/wordlists/rockyou.txt (descomprimido)
