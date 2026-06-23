@@ -1,0 +1,35 @@
+# Cracking — Hashcat
+
+## Comandos ejecutados
+
+```bash
+hashcat -m 5500 cred.hash /usr/share/wordlists/rockyou.txt
+hashcat -m 5500 cred2.hash /usr/share/wordlists/rockyou.txt
+```
+
+## Configuración
+
+| Parámetro | Valor |
+|-----------|-------|
+| Versión | hashcat v7.1.2 |
+| Modo | -m 5500 (NetNTLMv1) |
+| Diccionario | rockyou.txt (14,344,385 entradas) |
+| Hardware | Intel i5-1135G7 @ 2.40GHz |
+| Velocidad | ~5,800 – 7,500 kH/s |
+
+## Resultados
+
+| Hash | Estado | Contraseña | Tiempo | Progreso |
+|------|--------|------------|--------|----------|
+| cred.hash | ✅ Cracked | `123456` | < 3 seg | 0.06% del diccionario |
+| cred2.hash | ❌ Exhausted | — | 2 seg | 100% del diccionario |
+
+## Análisis de la contraseña obtenida
+
+| Criterio | Evaluación |
+|----------|------------|
+| Longitud | 6 caracteres |
+| Complejidad | Solo dígitos |
+| Posición en RockYou | #1 (la más común del mundo) |
+| Tiempo de cracking | < 3 segundos |
+| Nivel de riesgo | Crítico |
